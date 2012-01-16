@@ -1,0 +1,7 @@
+%script{:src => "http://localhost:3000/assets/tracker.js", :type => "text/javascript"}
+:javascript
+  hf.track({
+      campaign: "#{params[:campaign]}",
+      goal: "#{params[:goal]}"
+  });
+#tracking-scripts
