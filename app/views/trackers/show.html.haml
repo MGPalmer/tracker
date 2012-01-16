@@ -1,8 +1,34 @@
-%h1 tracker test
+%h1 Tracker testing
+%p
+  Select parameters to be passed to the root tracking script:
+= form_tag root_path, :method => :get do
+  = select_tag "campaign", options_for_select(Campaign.all.map(&:ref), params[:campaign]), :include_blank => true
+  %br
+  = select_tag "goal", options_for_select(Event.all.map(&:name), params[:goal]), :include_blank => true
+  %br
+  = submit_tag "try it out"
+
+%br
+%p
+  Use it like this:
+
+%pre
+  :preserve
+    %script{:src => "http://localhost:3000/assets/tracker.js", :type => "text/javascript"}
+    :javascript
+      hf.track({
+          campaign: "#{params[:campaign]}",
+          goal: "#{params[:goal]}"
+      });
+    #tracking-scripts
+
+%p
+  And here it is in action:
+
 %script{:src => "http://localhost:3000/assets/tracker.js", :type => "text/javascript"}
 :javascript
   hf.track({
-      event_id: "some event",
-      ref: "#{params[:ref]}"
+      campaign: "#{params[:campaign]}",
+      goal: "#{params[:goal]}"
   });
 #tracking-scripts
