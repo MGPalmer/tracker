@@ -1,3 +1,19 @@
+== Welcome to the Tracker !
+
+Notes on setup:
+
+* install RVM
+* accept the rvmrc
+* install ruby as needed
+* gem install bundler
+* bundle install
+* cp config/database.yml.default config/database.yml
+* edit database.yml to your needs
+* bundle exec db:setup (this loads some seeds!)
+* rails s
+
+Here follows the default Rails README:
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
