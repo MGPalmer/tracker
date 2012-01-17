@@ -31,4 +31,10 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'factory_girl_rails', '~> 1.5'
+end
+
+group :test, :development do
+  # needs to be in the :development group to expose generators and rake tasks without having to type RAILS_ENV=test.
+  gem 'rspec-rails', '~> 2.8'
 end
