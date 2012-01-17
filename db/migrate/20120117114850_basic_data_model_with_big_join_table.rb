@@ -42,5 +42,8 @@ class BasicDataModelWithBigJoinTable < ActiveRecord::Migration
   end
 
   def down
+    [:campaigns, :goals, :deals, :pixels, :rules].each do |table|
+      drop_table table
+    end
   end
 end
