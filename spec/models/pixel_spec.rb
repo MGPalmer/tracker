@@ -66,20 +66,6 @@ describe Pixel do
 
   end
 
-  it "saves large text" do
-    max = "x" * 16_777_215
-    @pixel.update_attribute(:content, max)
-    @pixel.reload.content.size.should == max.size
-
-    max_unicode = 'Ø' * 16_777_215
-    @pixel.update_attribute(:content, max_unicode)
-    @pixel.reload.content.size.should == max_unicode.size
-
-    # cuts off extra stuff
-    @pixel.update_attribute(:content, max_unicode + "x")
-    @pixel.reload.content.size.should == max_unicode.size
-  end
-
   context "superfind" do
 
   end
