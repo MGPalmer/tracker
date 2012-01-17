@@ -1,8 +1,8 @@
 ActiveAdmin.register Campaign do
   form do |f|
     f.inputs "Campaigns" do
-      f.inputs "Active Scripts" do
-        f.input :scripts, :as => :check_boxes
+      f.inputs "Active Pixels" do
+        f.input :pixels, :as => :check_boxes
       end
       f.input :name
       f.input :ref

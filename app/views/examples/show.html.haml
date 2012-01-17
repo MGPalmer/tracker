@@ -5,7 +5,7 @@
   campaign:
   = select_tag "campaign", options_for_select(Campaign.all.map(&:ref), params[:campaign]), :include_blank => true
   goal:
-  = select_tag "goal", options_for_select(Event.all.map(&:name), params[:goal]), :include_blank => true
+  = select_tag "goal", options_for_select(Goal.all.map(&:name), params[:goal]), :include_blank => true
   = submit_tag "try it out"
 %br
 %p

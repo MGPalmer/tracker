@@ -50,12 +50,11 @@ Tracker::Application.routes.draw do
   #     resources :products
   #   end
 
-  resource :tracker
-  resources :scripts
-  
+  resources :examples
+  resources :pixels
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'trackers#show'
+  root :to => 'examples#show'
 
   # See how all your routes lay out with "rake routes"
 

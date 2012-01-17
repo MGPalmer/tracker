@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111223135827) do
+ActiveRecord::Schema.define(:version => 20120117114850) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -49,34 +49,45 @@ ActiveRecord::Schema.define(:version => 20111223135827) do
   create_table "campaigns", :force => true do |t|
     t.string   "name"
     t.string   "ref"
+    t.boolean  "enabled",    :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "campaigns_scripts", :id => false, :force => true do |t|
-    t.integer "campaign_id"
-    t.integer "script_id"
-  end
-
-  add_index "campaigns_scripts", ["campaign_id", "script_id"], :name => "index_campaigns_scripts_on_campaign_id_and_script_id"
-
-  create_table "events", :force => true do |t|
+  create_table "deals", :force => true do |t|
     t.string   "name"
+    t.string   "ref"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "events_scripts", :id => false, :force => true do |t|
-    t.integer "event_id"
-    t.integer "script_id"
+  create_table "goals", :force => true do |t|
+    t.string   "name"
+    t.string   "ref"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "events_scripts", ["event_id", "script_id"], :name => "index_events_scripts_on_event_id_and_script_id"
-
-  create_table "scripts", :force => true do |t|
+  create_table "pixels", :force => true do |t|
+    t.string   "name"
     t.text     "content",    :limit => 2147483647
+    t.boolean  "enabled",                          :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rules", :force => true do |t|
+    t.integer  "campaign_id"
+    t.integer  "goal_id"
+    t.integer  "deal_id"
+    t.integer  "pixel_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rules", ["campaign_id", "goal_id", "deal_id", "pixel_id"], :name => "cgdp"
+  add_index "rules", ["deal_id", "pixel_id"], :name => "gd"
+  add_index "rules", ["goal_id", "deal_id", "pixel_id"], :name => "gdp"
+  add_index "rules", ["pixel_id"], :name => "p"
 
 end

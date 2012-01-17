@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/stipple/acts_as_archive.git
+  revision: 41ce71e2e3d23f55115c0ecb9e756193b9c9de5f
+  specs:
+    acts_as_archive (0.4.0)
+      also_migrate (~> 0.3)
+      mover (= 0.3.6)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -38,6 +46,7 @@ GEM
       activesupport (= 3.1.3)
     activesupport (3.1.3)
       multi_json (~> 1.0)
+    also_migrate (0.3.6)
     ansi (1.4.1)
     archive-tar-minitar (0.5.2)
     arel (2.2.1)
@@ -96,6 +105,7 @@ GEM
       activesupport (~> 3.1.0)
       polyamorous (~> 0.5.0)
     mime-types (1.17.2)
+    mover (0.3.6)
     multi_json (1.0.4)
     mysql2 (0.3.11)
     orm_adapter (0.0.5)
@@ -171,6 +181,8 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  acts_as_archive!
+  also_migrate (= 0.3.6)
   coffee-rails (~> 3.1.1)
   haml-rails
   jquery-rails
