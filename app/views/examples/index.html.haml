@@ -1,0 +1,18 @@
+%h1 Tracker testing
+%p
+  Select parameters to be passed to the root tracking script:
+= form_tag root_path, :method => :get do
+  campaign:
+  = select_tag "campaign", options_for_select(Campaign.all.map(&:ref), params[:campaign]), :include_blank => true
+  goal:
+  = select_tag "goal", options_for_select(Goal.all.map(&:name), params[:goal]), :include_blank => true
+  = submit_tag "try it out"
+%br
+%p
+  Use it like this:
+- snippet = render :partial => "tracking_snippet"
+%pre= escape_once(snippet)
+%p
+  And here it is in action:
+= snippet
+#tracking-scripts
