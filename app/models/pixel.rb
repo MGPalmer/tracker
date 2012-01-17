@@ -7,7 +7,7 @@ class Pixel < ActiveRecord::Base
   validates :name, :content, :presence => true
 
   class << self
-    def superfind(campaign_ref = nil, goal_ref = nil, deal_ref = nil)
+    def all_by_refs(campaign_ref = nil, goal_ref = nil, deal_ref = nil)
       joins("
           JOIN rules ON pixels.id = rules.pixel_id
           LEFT OUTER JOIN campaigns ON campaigns.id = rules.campaign_id

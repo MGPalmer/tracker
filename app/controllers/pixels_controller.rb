@@ -1,7 +1,7 @@
 class PixelsController < ApplicationController
 
   def index
-    @pixels = Pixel.superfind(params[:campaign], params[:goal])
+    @pixels = Pixel.all_by_refs(params[:campaign], params[:goal], params[:deal])
     render :layout => false
   end
   
