@@ -1,8 +1,10 @@
 class Pixel < ActiveRecord::Base
   has_many :rules
   has_many :campaigns, :through => :rules
-  has_many :goals, :through => :rules
-  has_many :deals, :through => :rules
+  has_many :goals,     :through => :rules
+  has_many :deals,     :through => :rules
+
+  validates :name, :content, :presence => true
 
   class << self
     def superfind(campaign_ref = nil, goal_ref = nil, deal_ref = nil)
