@@ -21,12 +21,8 @@ describe Campaign do
 
     it "has many pixels" do
       @campaign.pixels.should == []
-      Rule.count.should be_zero
-      Pixel.count.should be_zero
-      @campaign.pixels << @pixel
-      Rule.count.should == 1
-      Pixel.count.should == 1
-      @campaign.pixels.last.name.should == "superpixel"
+      expect { @campaign.pixels << @pixel }.to change { Rule.count }.from(0).to(1)
+      @campaign.pixels.should == [@pixel]
     end
 
   end
